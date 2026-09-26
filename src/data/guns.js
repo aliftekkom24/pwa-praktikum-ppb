@@ -53,6 +53,43 @@ const GUNS = [
     description:
       'The other pump gun. Twin action bars, a simple safety on the tang, and a price that leaves money for ammunition.',
   },
+  {
+    name: 'M4A1',
+    type: 'Rifle',
+    caliber: '5.56mm',
+    price: 1200,
+    image: '/guns/rifle.svg',
+    description:
+      'A compact, lightweight, gas-operated carbine designed for close-quarters combat and military precision.',
+  },
+  {
+    name: 'Barrett M82',
+    type: 'Rifle',
+    caliber: '.50 BMG',
+    price: 8900,
+    image: '/guns/rifle.svg',
+    description:
+      'Heavy recoil, anti-materiel sniper rifle. Engineered for extreme distances with massive stopping power.',
+  },
+  // --- 2 SENJATA TAMBAHAN BARU ---
+  {
+    name: 'MP5',
+    type: 'Pistol',
+    caliber: '9mm',
+    price: 1500,
+    image: '/guns/pistol.svg',
+    description:
+      'Legendary submachine gun variant. High rate of fire with minimal recoil, perfect for close-quarters law enforcement operations.',
+  },
+  {
+    name: 'Benelli M4',
+    type: 'Shotgun',
+    caliber: '12 Gauge',
+    price: 1899,
+    image: '/guns/shotgun.svg',
+    description:
+      'Auto-regulating gas-operated semi-automatic shotgun. Battle-proven reliability in harsh combat environments.',
+  },
 ]
 
 export default GUNS

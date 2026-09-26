@@ -1,27 +1,44 @@
-import GUNS from '../data/guns.js'
-import GunCard from '../components/GunCard.jsx'
+import { useState } from 'react'
+import GUNS from '../data/guns'
+import GunCard from '../components/GunCard'
 
 function Catalog() {
-  return (
-    <>
-      <section className="masthead">
-        <h1 className="display">Hardware, by the spec sheet.</h1>
-        <p className="lede">
-          A small armory of pistols, rifles, and shotguns. Every piece listed with its
-          type, caliber, and price — nothing else.
-        </p>
-      </section>
+  const [selectedCategory, setSelectedCategory] = useState('All')
 
-      <section>
-        <div className="list-head">
-          <h2>Current stock</h2>
-          <span className="count">{GUNS.length} pieces</span>
-        </div>
-        <ul className="stock">
-          {GUNS.map((gun) => <GunCard key={gun.name} gun={gun} />)}
-        </ul>
-      </section>
-    </>
+  const filteredGuns =
+    selectedCategory === 'All'
+      ? GUNS
+      : GUNS.filter(
+          (gun) => gun.type.toLowerCase() === selectedCategory.toLowerCase()
+        )
+
+  return (
+    <div className="catalog-page">
+      <h2>Catalog Senjata</h2>
+      <p className="pieces-count">{filteredGuns.length} pieces</p>
+
+      {/* Tombol Filter */}
+      <div className="filter-container">
+        {['All', 'Pistol', 'Rifle', 'Shotgun'].map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`filter-btn ${
+              selectedCategory === category ? 'active' : ''
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Grid Card Senjata */}
+      <div className="guns-grid">
+        {filteredGuns.map((gun, index) => (
+          <GunCard key={index} gun={gun} />
+        ))}
+      </div>
+    </div>
   )
 }
 
